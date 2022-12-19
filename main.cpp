@@ -1,10 +1,8 @@
 #include <iostream>
 #include "math.h"
-#include <iomanip>
 
 using namespace std;
 
-void principale(double a, double b);
 void bisezione(double a, double b);
 double f(double a);
 double rid(double a);
@@ -16,35 +14,41 @@ int main() {
     cout << "inserire estremi" << endl;
     cin >> a;
     cin >> b;
-    principale(a,b);
+    bisezione(a,b);
     return 0;
 }
-
-void principale(double a, double b){
-    bisezione(a,b);
-}
-
 double f(double a){
     double b;
     b = (pow(a,2) * cos(a) + 1);
     return b;
 
 }
+
+bool control(double a, double b){
+    if (f(a)*f(b)< 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 double rid(double a){
     if (a<0)
     return a+0.0001;
     else
         return a;
 }
+
 void bisezione(double a, double b){
-    double x = 0 ;
+    double x = 0;
     double error = 1;
-    double minlimit;
     char mstr[60];
     if (control(a,b))
     {
-        minlimit= 0.00001;
-        while (error > minlimit)
+        while (error > 0.00001)
         {
             x = (a+b)/2;
             if (f(x) == 0)
@@ -63,7 +67,6 @@ void bisezione(double a, double b){
             }
         }
         sprintf(mstr,"%.4f",rid(x));
-        
         cout << mstr;
     }
     else {
@@ -73,15 +76,5 @@ void bisezione(double a, double b){
             cin >> b;
         } while (!control(a, b));
         bisezione(a,b);
-    }
-}
-bool control(double a, double b){
-    if (f(a)*f(b)< 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
     }
 }
