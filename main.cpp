@@ -15,7 +15,7 @@ int main() {
 }
 
 void principale(){
-    cout << "inserire estremi";
+    cout << "inserire estremi" << endl;
     float a = 0;
     float b = 0;
     cin >> a;
@@ -70,7 +70,7 @@ void bisezione(float a, float b){
     }
     else {
         do {
-            cout << "inserire estremi";
+            cout << "inserire estremi" << endl;
             cin >> a;
             cin >> b;
         } while (!control(a, b));
