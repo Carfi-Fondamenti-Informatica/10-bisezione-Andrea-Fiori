@@ -8,17 +8,18 @@ void bisezione(float a, float b);
 float f(float a);
 float rid(float a);
 bool control(float a, float b);
-void imput(float a, float b);
 
 int main() {
     float a = 0;
     float b = 0;
+    cout << "inserire estremi" << endl;
+    cin >> a;
+    cin >> b; 
     principale(a,b);
     return 0;
 }
 
 void principale(float a, float b){
-    imput(a,b);
     bisezione(a,b);
 }
 float f(float a){
@@ -57,7 +58,9 @@ void bisezione(float a, float b){
     }
     else {
         do {
-            imput(a,b);
+            cout << "inserire estremi" << endl;
+            cin >> a;
+            cin >> b;
         } while (!control(a, b));
         bisezione(a,b);
     }
@@ -71,9 +74,4 @@ bool control(float a, float b){
     {
         return false;
     }
-}
-void imput(float a, float b){
-    cout << "inserire estremi" << endl;
-    cin >> a;
-    cin >> b;
 }
