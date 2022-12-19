@@ -76,5 +76,4 @@ void imput(float a, float b){
     cout << "inserire estremi" << endl;
     cin >> a;
     cin >> b;
-    return;
 }
