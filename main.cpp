@@ -36,9 +36,6 @@ bool control(double a, double b){
 }
 
 double rid(double a){
-    if (a<0)
-    return a+0.0001;
-    else
         return a;
 }
 
