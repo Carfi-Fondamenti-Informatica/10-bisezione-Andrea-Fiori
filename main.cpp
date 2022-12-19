@@ -4,9 +4,10 @@
 using namespace std;
 
 void principale();
-void bisezione(float a, float b);
+void bisezione(float, float );
 float f(float a);
 float rid(float a);
+bool control(float, float);
 
 int main() {
     principale();
@@ -32,13 +33,8 @@ float rid(float a){
 void bisezione(float a, float b){
     float x = 0 ;
     float error = 0;
+    if (control(a,b)){
     do{
-        if (f(a)* f(b) >= 0)
-        {
-            principale();
-        }
-        else
-        {
             x = (a+b)/2;
             if (f(x) == 0)
             {
@@ -46,17 +42,36 @@ void bisezione(float a, float b){
             }
             else if (f(x )*f(b) < 0 )
             {
-                b = x;
+                a = x;
                 error = abs( (b-a)/2 );
             }
             else
             {
-                a = x;
+                b = x;
                 error = abs( (b-a)/2 );
-            }
 
-        }
+
+            }
     } while (error >= 1/ pow(M_E, 6));
     cout << rid(x)<< endl;
     cout << rid(f(x));
+    }
+    else {
+        do {
+        cout << "inserire estremi" << endl;
+        cin >> a;
+        cin >> b;
+        } while (control(a,b) == false);
+        bisezione(a,b);
+    }
+}
+bool control(float a, float b){
+    if (f(a)*f(b)< 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
