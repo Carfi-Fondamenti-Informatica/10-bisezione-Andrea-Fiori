@@ -1,41 +1,52 @@
 #include <iostream>
 #include "math.h"
+#include <iomanip>
 
 using namespace std;
 
-void principale(float a, float b);
-void bisezione(float a, float b);
-float f(float a);
-float rid(float a);
-bool control(float a, float b);
+void principale(double a, double b);
+void bisezione(double a, double b);
+double f(double a);
+double rid(double a);
+bool control(double a, double b);
 
 int main() {
-    float a = 0;
-    float b = 0;
+    double a = 0;
+    double b = 0;
     cout << "inserire estremi" << endl;
     cin >> a;
-    cin >> b; 
+    cin >> b;
     principale(a,b);
     return 0;
 }
 
-void principale(float a, float b){
+void principale(double a, double b){
     bisezione(a,b);
 }
-float f(float a){
-    float b;
+
+double f(double a){
+    double b;
     b = (pow(a,2) * cos(a) + 1);
+    cout << a;
     return b;
+
 }
-float rid(float a){
-    return floorf(a * 10000) / 10000;
+double rid(double a){
+    if (a<0)
+    return a+0.0001;
+    else
+        return a;
 }
-void bisezione(float a, float b){
-    float x = 0 ;
-    float error = 0;
+void bisezione(double a, double b){
+    double x = 0 ;
+    double error = 1;
+    double minlimit;
+    char mstr[60];
     if (control(a,b))
     {
-        do{
+        minlimit= 0.00001;
+        while (error > minlimit)
+        {
             x = (a+b)/2;
             if (f(x) == 0)
             {
@@ -50,11 +61,11 @@ void bisezione(float a, float b){
             {
                 b = x;
                 error = abs( (b-a)/2 );
-
-
             }
-        } while (error >= 0.000001);
-        cout << rid(x);
+        }
+        sprintf(mstr,"%.4f",rid(x));
+        
+        cout << mstr;
     }
     else {
         do {
@@ -65,7 +76,7 @@ void bisezione(float a, float b){
         bisezione(a,b);
     }
 }
-bool control(float a, float b){
+bool control(double a, double b){
     if (f(a)*f(b)< 0)
     {
         return true;
