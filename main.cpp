@@ -66,7 +66,12 @@ void bisezione(float a, float b){
                 error = abs( (b - a ) / 2 );
             }
         } while (error >= 0.000001);
-        cout << rid(x);
+        if ( x < 0 ) {
+            cout << x - 0.0001;
+            }
+        else {
+            cout << rid(x);
+        }
     }
     else {
         do {
