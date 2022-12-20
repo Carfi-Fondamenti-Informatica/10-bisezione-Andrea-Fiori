@@ -20,7 +20,6 @@ int main() {
 double f(double a){
     double b;
     b = (pow(a,2) * cos(a) + 1);
-    cout << a << " ";
     return b;
 
 }
