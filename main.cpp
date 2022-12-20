@@ -38,7 +38,7 @@ bool control(double a, double b){
 double rid(double a){
     if (a<0){
         if ( a >= -2 && a<=-1 ){
-            return a+0.0002;
+            return a-0.0002;
             }
      return a+0.0001;
     }
