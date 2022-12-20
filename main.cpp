@@ -36,6 +36,7 @@ bool control(double a, double b){
 }
 
 double rid(double a){
+    float c = -1.863;
     if (a<0){
         if ( a >= -2 && a<=-1 ){
             return c;
@@ -84,4 +85,3 @@ void bisezione(double a, double b){
         bisezione(a,b);
     }
 }
-float c = -1.863;
