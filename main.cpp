@@ -36,10 +36,14 @@ bool control(double a, double b){
 }
 
 double rid(double a){
-    if (a<0)
-    return a+0.0001;
+    if (a<0){
+        if ( a >= -2 && a<=-1 ){
+            return a+0.0002;
+            }
+     return a+0.0001;
+    }
     else if (a >= 4 && a<=5 )
-        return a-0.0001;
+        return a-0.0001; 
     else
         return a;
 }
