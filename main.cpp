@@ -45,7 +45,7 @@ void bisezione(double a, double b){
     char mstr[60];
     if (control(a,b))
     {
-        while (error > 0.00001)
+        while (error >= 0.000005)
         {
             x = (a+b)/2;
             if (f(x) == 0)
