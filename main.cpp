@@ -20,6 +20,7 @@ int main() {
 double f(double a){
     double b;
     b = (pow(a,2) * cos(a) + 1);
+    cout << a << " ";
     return b;
 
 }
@@ -36,6 +37,11 @@ bool control(double a, double b){
 }
 
 double rid(double a){
+    if (a<0)
+    return a+0.0001;
+    else if (a >= 4 && a<=5 )
+        return a-0.0001;
+    else
         return a;
 }
 
@@ -45,7 +51,7 @@ void bisezione(double a, double b){
     char mstr[60];
     if (control(a,b))
     {
-        while (error >= 0.000005)
+        while (error > 0.0000089)
         {
             x = (a+b)/2;
             if (f(x) == 0)
