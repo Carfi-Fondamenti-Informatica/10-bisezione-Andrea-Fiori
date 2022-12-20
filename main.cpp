@@ -36,26 +36,19 @@ bool control(double a, double b){
 }
 
 double rid(double a){
-    float c = -1.863;
-    if (a<0){
-        if ( a >= -2 && a<=-1 ){
-            return c;
-            }
-     return a+0.0001;
-    }
-    else if (a >= 4 && a<=5 )
-        return a-0.0001; 
-    else
-        return a;
+    int b = 0;
+    a = a * 10000;
+    b = (int) a ;
+    float c = (float)b / 10000;
+    return c;
 }
 
 void bisezione(double a, double b){
     double x = 0;
     double error = 1;
-    char mstr[60];
     if (control(a,b))
     {
-        while (error > 0.0000089)
+        while (error > 0.000001)
         {
             x = (a+b)/2;
             if (f(x) == 0)
@@ -73,8 +66,7 @@ void bisezione(double a, double b){
                 error = abs( (b-a)/2 );
             }
         }
-        sprintf(mstr,"%.4f",rid(x));
-        cout << mstr;
+        cout << rid(x);
     }
     else {
         do {
